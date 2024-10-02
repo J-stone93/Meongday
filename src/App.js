@@ -2,7 +2,9 @@ import logo from './logo.svg';
 import './App.css';
 import { createGlobalStyle } from 'styled-components';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Main from './components/pages/Main';
+import Main from './pages/Main';
+import Layout from './components/Layout';
+
 
 const GlobalStyle = createGlobalStyle`
 
@@ -19,7 +21,9 @@ function App() {
       <GlobalStyle />
       <BrowserRouter>
         <Routes>
-          <Route path='/' element={<Main />} />
+          <Route path="/" element={<Layout />}>
+            <Route path='/' element={<Main />} />
+          </Route>
         </Routes>
       </BrowserRouter>
     </>
