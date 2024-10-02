@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import Footer from "./Footer";
 
 const Container = styled.div`
   width: 300px;
@@ -12,6 +13,9 @@ function Main() {
       <Container>
         ggggggggfgffffd
       </Container>
+
+      <Footer>
+      </Footer>
     </>
   );
 };
