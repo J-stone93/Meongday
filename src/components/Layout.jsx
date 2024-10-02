@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { Outlet } from "react-router-dom";
 import Header from "./Header";
+import Footer from "./Footer";
 
 const LayOutContainer = styled.div`
   display: flex;
@@ -13,6 +14,7 @@ function Layout() {
     <LayOutContainer>
       <Header/>
       <Outlet/>
+      <Footer/>
     </LayOutContainer>
   );
 };
