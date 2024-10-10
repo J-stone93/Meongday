@@ -49,7 +49,7 @@ function Header() {
               </Nav>
               <Nav>
                 <NavDropdown title={<UserIcon />} id="collapsible-nav-dropdown">
-                  <NavDropdown.Item href="#action/3.1">로그인</NavDropdown.Item>
+                  <NavDropdown.Item onClick={() => navigate('/login')}>로그인</NavDropdown.Item>
                   <NavDropdown.Item href="#action/3.2">
                     마이페이지
                   </NavDropdown.Item>

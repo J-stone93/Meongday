@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const LoginId = styled.placeholder`
+const LoginId = styled.div`
     position: absolute;
     width: 20px;
     height: 20px;

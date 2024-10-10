@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Main from './pages/Main';
 import Layout from './components/Layout';
 import Store from './components/Store';
+import Login from './components/login/Login';
 
 
 const GlobalStyle = createGlobalStyle`
@@ -26,6 +27,7 @@ function App() {
           <Route path="/" element={<Layout />}>
             <Route path='/' element={<Main />} />
             <Route path='/store' element={<Store />} />
+            <Route path='/login' element={<Login />} />
           </Route>
         </Routes>
       </BrowserRouter>
