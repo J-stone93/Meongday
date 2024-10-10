@@ -6,7 +6,7 @@ import { SiKakaotalk } from "react-icons/si";
 const StyledFooter = styled.footer`
   position: fixed;
   bottom: 0;
-  width: 1000px;
+  width: 1400px;
   height: 80px;
   text-align: center;
   display: flex;
@@ -20,6 +20,30 @@ const IconContainer = styled.footer`
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+  width: 300px;
+
+  a {
+    text-decoration: none;
+    color: black;
+  }
+`;
+
+const InstagramIcon = styled(SiInstagram)`
+  width: 38px;
+  height: 38px;
+  cursor: pointer;
+  `;
+
+const NaverIcon = styled(SiNaver)`
+  width: 38px;
+  height: 38px;
+  cursor: pointer;
+  `;
+
+const KakaoIcon = styled(SiKakaotalk)`
+  width: 38px;
+  height: 38px;
+  cursor: pointer;
 `;
 
 
@@ -32,9 +56,11 @@ function Footer() {
           &copy; Meongday
         </div>
         <IconContainer>
-          <SiInstagram/> 
-          <SiNaver/>
-          <SiKakaotalk/>
+          <a href="https://www.instagram.com/meongday_/" target="_blank" ><InstagramIcon/> </a>
+          <a href="https://smartstore.naver.com/meongday_" target="_blank" ><NaverIcon/> </a>
+          <a href="https://pf.kakao.com/_xaBQxcxj" target="_blank" ><KakaoIcon/> </a>
+          
+          
         </IconContainer>
       </StyledFooter>
     </>
