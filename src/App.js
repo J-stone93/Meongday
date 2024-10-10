@@ -7,6 +7,7 @@ import Main from './pages/Main';
 import Layout from './components/Layout';
 import Store from './components/Store';
 import Login from './components/login/Login';
+import Store from './pages/Store';
 
 
 const GlobalStyle = createGlobalStyle`
