@@ -44,8 +44,8 @@ function Header() {
               <Nav className="me-auto">
                 <Nav.Link href="#features">게시판1</Nav.Link>
                 <Nav.Link href="#1">게시판2</Nav.Link>
-                <Nav.Link href="#2">게시판3</Nav.Link>
-                <Nav.Link href="#3" onClick={() => navigate('/store')}>Store</Nav.Link>
+                <Nav.Link onClick={() => navigate('/QnA')}>Q&A</Nav.Link>
+                <Nav.Link onClick={() => navigate('/store')}>Store</Nav.Link>
               </Nav>
               <Nav>
                 <NavDropdown title={<UserIcon />} id="collapsible-nav-dropdown">
