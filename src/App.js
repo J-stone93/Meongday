@@ -5,6 +5,7 @@ import { createGlobalStyle } from 'styled-components';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Main from './pages/Main';
 import Layout from './components/Layout';
+import Store from './components/Store';
 
 
 const GlobalStyle = createGlobalStyle`
@@ -24,6 +25,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route path='/' element={<Main />} />
+            <Route path='/store' element={<Store />} />
           </Route>
         </Routes>
       </BrowserRouter>
