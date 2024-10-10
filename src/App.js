@@ -5,7 +5,7 @@ import { createGlobalStyle } from 'styled-components';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Main from './pages/Main';
 import Layout from './components/Layout';
-import Store from './components/Store';
+import Store from './pages/Store';
 
 
 const GlobalStyle = createGlobalStyle`
