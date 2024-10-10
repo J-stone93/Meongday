@@ -6,7 +6,6 @@ import { useNavigate } from "react-router-dom";
 
 const HeaderContainer = styled.div`
   width: 100%;
-  height: 156px;
   background-color: #fff;
 `;
 
@@ -26,7 +25,6 @@ const UserIcon = styled(LuUser2)`
   width: 30px;
   height: 30px;
 `;
-
 
 
 function Header() {
