@@ -5,7 +5,6 @@ import { createGlobalStyle } from 'styled-components';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Main from './pages/Main';
 import Layout from './components/Layout';
-import Store from './components/Store';
 import Login from './components/login/Login';
 import Store from './pages/Store';
 
