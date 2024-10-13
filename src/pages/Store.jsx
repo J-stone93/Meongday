@@ -39,6 +39,7 @@ function Store() {
 
   return (
     <>
+    <hr />
       <MapHeader>
         <div>
           <span>근처 카페 병원 정보</span>
