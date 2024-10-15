@@ -71,7 +71,7 @@ function Header() {
                 </SubMenu>
                 </NavContainer>
                 <Nav.Link href="#2">커뮤니티</Nav.Link>
-                <Nav.Link href="#3">Q&A</Nav.Link>
+                <Nav.Link onClick={() => navigate('/QnA')}>Q&A</Nav.Link>
                 <Nav.Link href="#4" onClick={() => navigate('/store')}>Store</Nav.Link>
               </Nav>
               <Nav>
