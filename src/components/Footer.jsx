@@ -14,6 +14,8 @@ const StyledFooter = styled.footer`
   align-items: center;
   font-size: 24px;
   border-top: 2px solid black;
+  z-index: 9;
+  background-color: #ffffff;
 `;
 
 const IconContainer = styled.footer`
