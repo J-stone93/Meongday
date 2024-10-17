@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Button, Col, Container, Navbar, Row } from 'react-bootstrap';
 import styled from 'styled-components';
+import Review from './Review';
 
 
 function ProductDetail() {
@@ -21,13 +22,6 @@ function ProductDetail() {
   align-items: center; /* 세로 중앙 정렬 */
   `;
 
-  const StyleColPrice = styled(Col)`
-  /* background-color: #967b7b; */
-  margin-top: 40px;
-  width: 400px;
-  display: flex;
-
-  `
 
   const PriceContainer = styled(Container)`
   background-color: #c5c59d; /* 배경색 */
@@ -67,16 +61,33 @@ function ProductDetail() {
   text-align: center;
   `
 
+  const DetailAndReview = styled.div`
+    display: flex;
+    justify-content: space-evenly;
+  `
+
+  const DetailProduct = styled.div`
+    margin: 26px;
+    width: 100%;
+  `
+
+  const DeAndReButton = styled.button`
+    border: none;
+    border-radius: 5px;
+  `
+
+
   const product = {
     productName: '멍쿠키',
     productCategory: '식품류',
     productPrice: 5500
-  }
-  
-  // 썸네일상세사진등등 더더필요
+  };
+   // 썸네일, 상세사진등등 더더필요, 받아오기
 
   const [count, setCount] = useState(0);
   const [totalPrice, setTotalPrice] = useState(0);
+
+  const [showDetail, setShowDetail] =useState(true);
 
   const handleCounterPlus = () => {
     setCount(count + 1);
@@ -89,6 +100,14 @@ function ProductDetail() {
       setTotalPrice((count - 1) * product.productPrice);
     }
   };
+
+  const handleShowDetail = () => {
+    setShowDetail(true); // 이미지 보이기
+  };
+
+  const handleShowReview = ()=>{
+    setShowDetail(false); //쇼디테일이 거짓이면 리뷰보이기
+  }
 
   return (
     <>
@@ -120,10 +139,22 @@ function ProductDetail() {
               <Button variant="outline-success">장바구니 담기</Button>
             </Col>
           </Col >
-
-          {/* 리뷰 */}
-          {/* 상세사진넣기 */}
         </StyledRow>
+
+          {/* 상세사진넣기 */}
+          {/* 리뷰 */}
+          <DetailAndReview>
+            <DeAndReButton type='button' onClick={handleShowDetail}>Detail</DeAndReButton>
+            <div> | </div>
+            <DeAndReButton type="button" onClick={handleShowReview}>Review</DeAndReButton>
+          </DetailAndReview>
+
+          {showDetail ?(
+          <DetailProduct>
+          <img src="/images/sampleDog.jpeg" alt="샘플샘플" />
+          </DetailProduct>
+          ) : <Review />}
+
       </StyledContainer>
     </>
   )

@@ -27,7 +27,6 @@ const UserIcon = styled(LuUser2)`
 `;
 
 const NavContainer = styled.nav`
-
   &:hover > div {
     display: flex;
   }
@@ -36,6 +35,8 @@ const NavContainer = styled.nav`
 
 const SubMenu = styled.div`
   display: none;
+  width: 100px;
+  text-align: center;
   position: absolute;
   background-color: white;
   border: 1px solid #ccc;
@@ -66,8 +67,8 @@ function Header() {
                 <NavContainer>
                 <Nav.Link href="#1">전체상품</Nav.Link>
                 <SubMenu>
-                  <Nav.Link onClick={() => navigate('/products')}>카테고리111111</Nav.Link>
-                  <Nav.Link onClick={() => navigate('/products')}>카테고리222222</Nav.Link>
+                  <Nav.Link onClick={() => navigate('/products')}>식음</Nav.Link>
+                  <Nav.Link onClick={() => navigate('/products')}>의류</Nav.Link>
                 </SubMenu>
                 </NavContainer>
                 <Nav.Link href="#2">커뮤니티</Nav.Link>

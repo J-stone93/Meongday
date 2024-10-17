@@ -69,12 +69,11 @@ function Products() {
   `;
   
   const ProductImage = styled.div`
-    display: flex; /* Flexbox 활성화 */
-    justify-content: center; /* 수평 중앙 정렬 */
-    align-items: center; /* 수직 중앙 정렬 */
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
     width: 100%; /* 너비 설정 (필요에 따라 조정) */
     height: 180px /* 고정 높이 설정 (필요에 따라 조정) */
-    overflow: hidden; /* 이미지가 컨테이너를 넘어갈 경우 숨김 처리 */
   `
 
   const PageNationContainer = styled.div`
