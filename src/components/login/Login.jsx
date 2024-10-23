@@ -1,3 +1,4 @@
+import { Link, Navigate } from "react-router-dom";
 import styled from "styled-components";
 
 const Container = styled.div`
@@ -38,22 +39,71 @@ const Button = styled.button`
   }
 `;
 
-const NameTag = styled.div`
+const PasswordDiv = styled.div`
+  width: 550px;
+  display: flex;
+  justify-content: space-between;
+`
+
+const IdNameTag = styled.div`
   width: 550px;
   font-size: 20px;
   font-weight: 900;
   text-align: left;
 `
 
+const PwNameTag = styled.div`
+  font-size: 20px;
+  font-weight: 900;
+  text-align: left;
+`
+
+const ForgetPassword = styled.div`
+  font-size: 15px;
+  color: #007aff;
+  font-weight: 900;
+  text-align: left;
+  cursor: pointer;
+`
+
+const IdDiv = styled.div`
+  width: 550px;
+  display: flex;
+  justify-content: center;
+  padding-top: 20px;
+  `
+
+const NoId = styled.div`
+  font-size: 15px;
+  font-weight: 900;
+  margin-right: 5px;
+`
+
+const MakeId = styled.div`
+  font-size: 15px;
+  color: #007aff;
+  font-weight: 900;
+  cursor: pointer;
+`
+
 function Login() {
   return (
     <Container>
       <LogoImg src="/images/meongday.png" alt="meongday" />
-      <NameTag>아이디</NameTag>
+      <IdNameTag>아이디</IdNameTag>
       <LoginInput />
-      <NameTag>비밀번호</NameTag>
+      <PasswordDiv>
+        <PwNameTag>비밀번호</PwNameTag>
+        <ForgetPassword>비밀번호를 잊으셨나요?</ForgetPassword>
+      </PasswordDiv>
       <LoginInput />
       <Button>로그인</Button>
+      <IdDiv>
+        <NoId>아이디가 없으신가요?</NoId>
+        <MakeId>
+          <Link to="/signup">아이디만들기</Link>
+        </MakeId>
+      </IdDiv>
     </Container>
   );
 };

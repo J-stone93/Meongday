@@ -11,6 +11,7 @@ import Store from './pages/Store';
 import Products from './pages/Products';
 import ProductDetail from './pages/ProductDetail';
 import Cart from './pages/Cart';
+import SignUp from './components/login/SignUp';
 
 
 
@@ -38,7 +39,8 @@ function App() {
             <Route path='/store' element={<Store />} />
             <Route path='/QnA' element={<QnA />} />
           </Route>
-            <Route path='/login' element={<Login />} />
+            <Route path="/login" element={<Login />} />
+            <Route path='/signup' element={<SignUp />} />
         </Routes>
       </BrowserRouter>
     </>
