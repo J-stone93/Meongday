@@ -1,5 +1,6 @@
 import { useState } from "react";
 import styled from "styled-components";
+import Image from 'react-bootstrap/Image';
 
 function addQnA() {
   const QnAContainer = styled.div`
@@ -26,6 +27,46 @@ const TitleInner = styled.div`
   padding-bottom: 50px;
 `;
 
+const AddQnAContainer = styled.div`
+  width: 100%;
+  padding: 40px 0px;
+`;
+
+const AddQnATitle = styled.label`
+  display: flex;
+  margin-bottom: 20px;
+  justify-content: center;
+`;
+
+const AddQnAFile = styled.div`
+  display: flex;
+  margin-bottom: 20px;
+  justify-content: center;
+`;
+
+const TitleInput = styled.input`
+  width: 1000px;
+  margin-left: 30px;
+`;
+
+const ContentInput = styled.textarea`
+  width: 1000px;
+  margin-left: 30px;
+  height: 400px;
+  resize: none;
+`;
+
+const ImgFile = styled.input`
+  display: none;
+`;
+
+const ImgBtn = styled.label`
+  margin-left: 20px;
+  cursor: pointer;
+  background-color: #999;
+  padding: 6px 25px;
+  border-radius: 12px;
+`;
 
 
 // const [imgFile, setImgFile] = useState();
@@ -37,21 +78,24 @@ const TitleInner = styled.div`
         <TitleInner>
           <Title>QnA 작성하기</Title>
         </TitleInner>
-      <div>
-        <div>
-          <div>제목</div>
-          <input type="text" />
-        </div>
-        <div>
-          <div>내용</div>
-          <input type="text" />
-        </div>
-        <div>
-          <div>사진첨부</div>
-          <input type="file" accept = "image/*" multiple />
-          <div>미리보기</div>
-        </div>
-      </div>
+      <AddQnAContainer>
+        <AddQnATitle>
+          <p>제목</p>
+          <TitleInput type="text" />
+        </AddQnATitle>
+        <AddQnATitle>
+          <p>내용</p>
+          <ContentInput type="text-area" />
+        </AddQnATitle>
+        <AddQnAFile>
+          <p>사진첨부</p>
+          <Image src="holder.js/171x180" rounded />
+          <ImgBtn htmlFor="input-file">
+            파일선택
+          </ImgBtn>
+          <ImgFile type="file" id="input-file" accept = "image/*" multiple />
+        </AddQnAFile>
+      </AddQnAContainer>
       <button>취소</button>
       <button>작성</button>
       </QnAInner>

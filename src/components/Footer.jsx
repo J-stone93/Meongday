@@ -4,8 +4,8 @@ import { SiInstagram } from "react-icons/si";
 import { SiKakaotalk } from "react-icons/si";
 
 const StyledFooter = styled.footer`
-  position: fixed;
-  bottom: 0;
+  /* position: fixed; */
+  /* bottom: 0; */
   width: 1400px;
   height: 80px;
   text-align: center;
