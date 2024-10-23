@@ -141,6 +141,8 @@ function Store() {
     isLoading: true,
   });
 
+  
+
   useEffect(() => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
@@ -234,7 +236,7 @@ function Store() {
           center={{ lat: 37.477845, lng: 126.513889 }}
           level={3}
         /> */}
-        <StyledMap center={showMap.center} level={3}>
+        <StyledMap center={showMap.center} level={5}>
           {/* 현재 위치 마커 표시 */}
           <MapMarker
             position={showMap.center}
