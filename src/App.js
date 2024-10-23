@@ -12,6 +12,7 @@ import Products from './pages/Products';
 import ProductDetail from './pages/ProductDetail';
 import Cart from './pages/Cart';
 import AddQnA from './pages/AddQnA';
+import SignUp from './components/login/SignUp';
 
 
 
@@ -40,7 +41,8 @@ function App() {
             <Route path='/QnA' element={<QnA />} />
             <Route path='/addQnA' element={<AddQnA />} />
           </Route>
-            <Route path='/login' element={<Login />} />
+            <Route path="/login" element={<Login />} />
+            <Route path='/signup' element={<SignUp />} />
         </Routes>
       </BrowserRouter>
     </>
