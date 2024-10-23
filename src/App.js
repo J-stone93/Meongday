@@ -9,6 +9,7 @@ import QnA from './pages/QnA';
 import Login from './components/login/Login';
 import Store from './pages/Store';
 import Products from './pages/Products';
+import AddQnA from './pages/AddQnA';
 
 
 
@@ -33,6 +34,7 @@ function App() {
             <Route path='/products' element={<Products/>} />
             <Route path='/store' element={<Store />} />
             <Route path='/QnA' element={<QnA />} />
+            <Route path='/addQnA' element={<AddQnA />} />
           </Route>
             <Route path='/login' element={<Login />} />
         </Routes>
