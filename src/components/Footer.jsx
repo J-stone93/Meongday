@@ -4,9 +4,6 @@ import { SiInstagram } from "react-icons/si";
 import { SiKakaotalk } from "react-icons/si";
 
 const StyledFooter = styled.footer`
-  /* position: fixed; */ 
-  /* 고정시키고 스크롤하든지 조치요망 */
-  bottom: 0;
   width: 1400px;
   height: 80px;
   text-align: center;
@@ -16,7 +13,6 @@ const StyledFooter = styled.footer`
   margin: 30px 0px 0px;
   font-size: 24px;
   border-top: 2px solid black;
-  z-index: 9;
   background-color: #ffffff;
 `;
 

@@ -1,4 +1,5 @@
 import { Pagination, Table } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 const QnAContainer = styled.div`
@@ -62,6 +63,8 @@ const MyBtn = styled.button`
 `;
 
 function QnA() {
+  const navigate = useNavigate();
+
   return (
     <QnAContainer>
       <QnAInner>
@@ -91,7 +94,7 @@ function QnA() {
             </tbody>
           </MyTable>
           <BtnContainer>
-            <MyBtn>글쓰기</MyBtn>
+            <MyBtn onClick={() => {navigate('/addQnA')}}>글쓰기</MyBtn>
           </BtnContainer>
         {/* 페이지네이션 만들기 */}
         </TableInner>
