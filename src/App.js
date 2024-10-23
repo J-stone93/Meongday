@@ -10,6 +10,7 @@ import Login from './components/login/Login';
 import Store from './pages/Store';
 import Products from './pages/Products';
 import ProductDetail from './pages/ProductDetail';
+import Cart from './pages/Cart';
 
 
 
@@ -33,6 +34,7 @@ function App() {
             <Route path='/' element={<Main />} />
             <Route path='/products' element={<Products/>} />
             <Route path='/productDetail' element={<ProductDetail />} />
+            <Route path='/cart' element = {<Cart />}/>
             <Route path='/store' element={<Store />} />
             <Route path='/QnA' element={<QnA />} />
           </Route>

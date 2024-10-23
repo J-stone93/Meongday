@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Button, Col, Container, Navbar, Row } from 'react-bootstrap';
 import styled from 'styled-components';
 import Review from './Review';
+import { useNavigate } from 'react-router-dom';
 
 
 function ProductDetail() {
@@ -82,8 +83,9 @@ function ProductDetail() {
     productCategory: '식품류',
     productPrice: 5500
   };
-   // 썸네일, 상세사진등등 더더필요, 받아오기
 
+
+  const navigate = useNavigate();
   const [count, setCount] = useState(0);
   const [totalPrice, setTotalPrice] = useState(0);
 
@@ -136,7 +138,7 @@ function ProductDetail() {
             </PriceContainer>
             <Col className='mt-2'>
               <Button variant="success">구매하기</Button>{' '}
-              <Button variant="outline-success">장바구니 담기</Button>
+              <Button variant="outline-success" onClick={()=>navigate('/cart')}>장바구니 담기</Button>
             </Col>
           </Col >
         </StyledRow>
