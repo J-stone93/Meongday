@@ -75,8 +75,8 @@ const MyBtn = styled.button`
       <MyTable hover>
         <thead>
           <tr>
-            <th>번호</th>
-            <th>제목</th>
+            <th>평점</th>
+            <th>내용</th>
             <th>작성자</th>
             <th>작성일</th>
             <th>조회</th>
@@ -84,8 +84,8 @@ const MyBtn = styled.button`
         </thead>
         <tbody>
           <tr> {/* tr 맵돌려서 onClick 하면 될듯...? css 커서 포인터로 바꾸고...*/} 
-            <td>1</td>
-            <td>테스트</td>
+            <td>☆☆★★★</td>
+            <td>잘머거요</td>
             <td>chacha</td>
             <td>2024-10-15</td>
             <td>2</td>
