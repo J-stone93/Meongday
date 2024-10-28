@@ -5,95 +5,94 @@ import Review from './Review';
 import { useNavigate } from 'react-router-dom';
 
 
-function ProductDetail() {
+const MiddleLine = styled.div`
+display: flex;
+justify-content: center;
+width: 1400px;
+margin: 20px 0px;
+border-top: 2px solid black;
+`
+const StyledContainer = styled(Container)`
+text-align: center;
+`
 
-  const MiddleLine = styled.div`
-  display: flex;
-  justify-content: center;
-  width: 1400px;
-  margin: 20px 0px;
-  border-top: 2px solid black;
-  `
-  const StyledContainer = styled(Container)`
-  text-align: center;
-  `
-
-  const StyledRow = styled(Row)`
-  display: flex;
-  align-items: center; /* 세로 중앙 정렬 */
-  `;
+const StyledRow = styled(Row)`
+display: flex;
+align-items: center; /* 세로 중앙 정렬 */
+`;
 
 
-  const PriceContainer = styled(Container)`
-  background-color: #c5c59d; /* 배경색 */
-  margin-top: 30px;
-  width: 55%;
-  height: 80px;
-  padding: 7px;
-  position: relative;
-  /* overflow: hidden; */
-  `;
+const PriceContainer = styled(Container)`
+background-color: #c5c59d; /* 배경색 */
+margin-top: 30px;
+width: 55%;
+height: 80px;
+padding: 7px;
+position: relative;
+/* overflow: hidden; */
+`;
 
-  const PlusMinusIcon = styled(Col)`
+const PlusMinusIcon = styled(Col)`
+position: absolute;
+right: -5px;
+`
+
+const TotalPrice = styled(Col)`
   position: absolute;
-  right: -5px;
-  `
-
-  const TotalPrice = styled(Col)`
-    position: absolute;
-    right: 20px;
-    bottom: 5px;
-  `
+  right: 20px;
+  bottom: 5px;
+`
 
 
-  const CountButton = styled.button`
+const CountButton = styled.button`
   width: 30px;
   height: 30px;
   background-color: #f5f5f5;
   border: 1px solid black;
   &:hover {
-  background-color: #c9c9c9;
+    background-color: #c9c9c9;
   } 
-  `;
-  const CountInput = styled.input`
+`;
+const CountInput = styled.input`
   width: 30px;
   height: 30px;
   background-color: #f5f5f5;
   text-align: center;
-  `
+`
 
-  const DetailAndReview = styled.div`
-    display: flex;
-    justify-content: space-evenly;
-  `
+const DetailAndReview = styled.div`
+  display: flex;
+  justify-content: space-evenly;
+`
 
-  const DetailProduct = styled.div`
-    margin: 26px;
-    width: 100%;
-  `
+const DetailProduct = styled.div`
+  margin: 26px;
+  width: 100%;
+`
 
-  const DeAndReButton = styled.button`
-    border: none;
-    border-radius: 5px;
-  `
+const DeAndReButton = styled.button`
+  border: none;
+  border-radius: 5px;
+`
 
+function ProductDetail() {
 
   const product = {
     productName: '멍쿠키',
     productCategory: '식품류',
     productPrice: 5500
   };
-
+  // const product = useselector 이용하기
 
   const navigate = useNavigate();
   const [count, setCount] = useState(0);
   const [totalPrice, setTotalPrice] = useState(0);
 
-  const [showDetail, setShowDetail] =useState(true);
+  const [showDetail, setShowDetail] = useState(true);
 
   const handleCounterPlus = () => {
     setCount(count + 1);
-    setTotalPrice((count+ 1 ) * product.productPrice);
+    setTotalPrice((count + 1) * product.productPrice);
   };
 
   const handleCounterMinus = () => {
@@ -107,7 +106,7 @@ function ProductDetail() {
     setShowDetail(true); // 이미지 보이기
   };
 
-  const handleShowReview = ()=>{
+  const handleShowReview = () => {
     setShowDetail(false); //쇼디테일이 거짓이면 리뷰보이기
   }
 
@@ -138,24 +137,24 @@ function ProductDetail() {
             </PriceContainer>
             <Col className='mt-2'>
               <Button variant="success">구매하기</Button>{' '}
-              <Button variant="outline-success" onClick={()=>navigate('/cart')}>장바구니 담기</Button>
+              <Button variant="outline-success" onClick={() => navigate('/cart')}>장바구니 담기</Button>
             </Col>
           </Col >
         </StyledRow>
 
-          {/* 상세사진넣기 */}
-          {/* 리뷰 */}
-          <DetailAndReview>
-            <DeAndReButton type='button' onClick={handleShowDetail}>Detail</DeAndReButton>
-            <div> | </div>
-            <DeAndReButton type="button" onClick={handleShowReview}>Review</DeAndReButton>
-          </DetailAndReview>
+        {/* 상세사진넣기 */}
+        {/* 리뷰 */}
+        <DetailAndReview>
+          <DeAndReButton type='button' onClick={handleShowDetail}>Detail</DeAndReButton>
+          <div> | </div>
+          <DeAndReButton type="button" onClick={handleShowReview}>Review</DeAndReButton>
+        </DetailAndReview>
 
-          {showDetail ?(
+        {showDetail ? (
           <DetailProduct>
-          <img src="/images/sampleDog.jpeg" alt="샘플샘플" />
+            <img src="/images/sampleDog.jpeg" alt="샘플샘플" />
           </DetailProduct>
-          ) : <Review />}
+        ) : <Review />}
 
       </StyledContainer>
     </>
