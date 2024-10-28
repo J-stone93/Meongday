@@ -13,6 +13,7 @@ import ProductDetail from './pages/ProductDetail';
 import Cart from './pages/Cart';
 import AddQnA from './pages/AddQnA';
 import SignUp from './components/login/SignUp';
+import AddProduct from './pages/AddProduct';
 
 
 
@@ -34,6 +35,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route path='/' element={<Main />} />
+            <Route path='/addProduct' element = {<AddProduct />}/>
             <Route path='/products' element={<Products/>} />
             <Route path='/productDetail/:productId' element={<ProductDetail />} />
             <Route path='/cart' element = {<Cart />}/>

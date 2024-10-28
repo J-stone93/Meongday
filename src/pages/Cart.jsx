@@ -18,10 +18,10 @@ function Cart() {
 
   const StyledPlMiButton = styled(Button)`
   margin: 3px;
-  width: 25px;  /* 버튼의 너비 설정 */
-  height: 25px; /* 버튼의 높이 설정 */
-  padding: 0;   /* 패딩을 제거해 버튼 크기를 정확히 설정 */
-  font-size: 14px; /* 버튼 안의 텍스트 크기 조절 */
+  width: 25px;
+  height: 25px; 
+  padding: 0;   
+  font-size: 14px; 
   `
 
 const cartItem = [

@@ -67,6 +67,7 @@ function Header() {
                 <NavContainer>
                 <Nav.Link href="#1">전체상품</Nav.Link>
                 <SubMenu>
+                  <Nav.Link onClick={() => navigate('/addProduct')}>등록</Nav.Link>
                   <Nav.Link onClick={() => navigate('/products')}>식음</Nav.Link>
                   <Nav.Link onClick={() => navigate('/products2')}>의류</Nav.Link>
                 </SubMenu>
