@@ -46,11 +46,18 @@ const productSlice = createSlice({
    },
    getSelectedProduct:(state,action)=>{
     state.selectedProduct = action.payload;
-   }  //상품상세보기할때필요한듯
+   },  //상품상세보기할때필요한듯
+   addProduct: (state, action)=>{
+    state.productList.push(action.payload);
+   }
   }
 });
 
-export const {getAllProducts, getSelectedProduct} = productSlice.actions;
+export const {
+  getAllProducts,
+  getSelectedProduct,
+  addProduct
+} = productSlice.actions;
 
 export const selectedAllProduct = (state)=>{
   return state.product.productList

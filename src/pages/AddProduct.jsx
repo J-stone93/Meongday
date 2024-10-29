@@ -1,5 +1,9 @@
 import styled from "styled-components";
 import Image from 'react-bootstrap/Image';
+import { useDispatch } from "react-redux";
+import { useState } from "react";
+import { addProduct } from "../features/productSlice";
+import { useNavigate } from "react-router-dom";
 
 const QnAContainer = styled.div`
   max-width: 1440px;
@@ -68,6 +72,27 @@ const ImgBtn = styled.label`
 
 
 function AddProduct() {
+  const dispatch = useDispatch();
+  const [title, setTitle] = useState('');
+  const [content, setContent] = useState('');
+  const [price, setPrice] = useState('');
+  const [category, setCategory] = useState('food');
+
+  const navigate = useNavigate();
+
+  const handleAddProduct = () => {
+    const newProduct = {
+      id: Date.now(), // 고유 ID 생성
+      name: title,
+      description: content,
+      price: Number(price),
+      category,
+      imgUrl: '/images/default.png' // 기본 이미지 설정
+    };
+    dispatch(addProduct(newProduct));
+    alert("작성완료");
+    navigate('/')
+  };
   return(
     <QnAContainer>
       <QnAInner>
@@ -77,18 +102,18 @@ function AddProduct() {
       <AddQnAContainer>
         <AddQnATitle>
           <p>제목</p>
-          <TitleInput type="text" />
+          <TitleInput type="text"  value={title} onChange={(e) => setTitle(e.target.value)} />
         </AddQnATitle>
         <AddQnATitle>
           <p>내용</p>
-          <ContentInput type="text-area" />
+          <ContentInput type="text-area" value={content} onChange={(e) => setContent(e.target.value)}/>
         </AddQnATitle>
         <AddQnATitle>
         <p>가격</p>
-          <TitleInput type="number" />
+          <TitleInput type="number"  onChange={(e) => setPrice(e.target.value)}/>
         </AddQnATitle>
         <label for="category">카테고리:</label>
-        <select id="category" name="category">
+        <select id="category" name="category"  value={category} onChange={(e) => setCategory(e.target.value)}>
           <option value="food">식음류</option>
           <option value="clothes">의류</option>
         </select>
@@ -101,8 +126,8 @@ function AddProduct() {
           <ImgFile type="file" id="input-file" accept = "image/*" multiple />
         </AddQnAFile>
       </AddQnAContainer>
-      <button>취소</button>
-      <button>작성</button>
+      <button onClick={() => console.log("취소")}>취소</button>
+      <button type="submit" onClick={handleAddProduct}>작성</button> {/* Submit이 더 적절한 것 같다. 변경하기 */}
       </QnAInner>
     </QnAContainer> 
   );
