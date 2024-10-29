@@ -14,6 +14,7 @@ import Cart from './pages/Cart';
 import AddQnA from './pages/AddQnA';
 import SignUp from './components/login/SignUp';
 import AddProduct from './pages/AddProduct';
+import QnADetail from './pages/QnADetail';
 
 
 
@@ -42,6 +43,7 @@ function App() {
             <Route path='/store' element={<Store />} />
             <Route path='/QnA' element={<QnA />} />
             <Route path='/addQnA' element={<AddQnA />} />
+            <Route path="/QnA/:qnaNo" element={<QnADetail />} />
           </Route>
             <Route path="/login" element={<Login />} />
             <Route path='/signup' element={<SignUp />} />

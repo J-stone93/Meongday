@@ -65,6 +65,12 @@ const MyBtn = styled.button`
 function QnA() {
   const navigate = useNavigate();
 
+  const qnaList = [
+    { no: 3, title: "테스트3", author: "chacha", date: "2024-10-15", views: 5, content: "안녕테스트" },
+    { no: 2, title: "테스트2", author: "chacha", date: "2024-10-14", views: 3, content: "안녕테스트"  },
+    { no: 1, title: "테스트1", author: "chacha", date: "2024-10-13", views: 7, content: "안녕테스트"  },
+  ];
+
   return (
     <QnAContainer>
       <QnAInner>
@@ -84,19 +90,23 @@ function QnA() {
               </tr>
             </thead>
             <tbody>
-              <tr> {/* tr 맵돌려서 onClick 하면 될듯...? css 커서 포인터로 바꾸고...*/} 
-                <td>1</td>
-                <td>테스트</td>
-                <td>chacha</td>
-                <td>2024-10-15</td>
-                <td>2</td>
-              </tr>
+              {qnaList.map((QnA) => (
+                <tr key={QnA.no}>
+                  <td>{QnA.no}</td>
+                  <td onClick={() => navigate(`/QnA/${QnA.no}`)} style={{ cursor: 'pointer' }}>
+                    {QnA.title}
+                  </td>
+                  <td>{QnA.author}</td>
+                  <td>{QnA.date}</td>
+                  <td>{QnA.views}</td>
+                </tr>
+              ))}
             </tbody>
           </MyTable>
           <BtnContainer>
-            <MyBtn onClick={() => {navigate('/addQnA')}}>글쓰기</MyBtn>
+            <MyBtn onClick={() => navigate('/addQnA')}>글쓰기</MyBtn>
           </BtnContainer>
-        {/* 페이지네이션 만들기 */}
+          {/* 페이지네이션 만들기 */}
         </TableInner>
       </QnAInner>
     </QnAContainer>
