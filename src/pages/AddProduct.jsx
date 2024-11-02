@@ -94,20 +94,6 @@ function AddProduct() {
 
   const navigate = useNavigate();
 
-  const handleAddProduct = () => {
-    const newProduct = {
-      id: Date.now(), // 고유 ID 생성
-      name: title,
-      description: content,
-      price: Number(price),
-      category,
-      imgUrl: '/images/default.png' // 기본 이미지 설정
-    };
-    dispatch(addProduct(newProduct));
-    alert("작성완료");
-    navigate('/')
-  };
-
   const handleAddProduct1 = async (e) => {
     e.preventDefault();
 

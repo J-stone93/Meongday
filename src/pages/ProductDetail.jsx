@@ -152,7 +152,6 @@ function ProductDetail() {
 
         {showDetail ? (
           <DetailProduct>
-            <p>상품설명</p>
             <p>{product.content}</p>
             <img src="/images/sampleDog.jpeg" alt="샘플샘플" />
           </DetailProduct>
