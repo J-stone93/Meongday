@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import { selectedAllProduct } from "../features/productSlice";
+import { selectCategoryState, selectedAllProduct } from "../features/productSlice";
 
 
 const MiddleLine = styled.div`
@@ -65,6 +65,7 @@ function Products() {
 
   const navigate = useNavigate();
   const product = useSelector(selectedAllProduct);
+  const productCategory = useSelector(selectCategoryState);
 
   return (
     <>

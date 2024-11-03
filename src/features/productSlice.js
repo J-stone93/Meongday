@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 
 const initialState = {
-  productList:[
+  productList: [
     {
       id: 1,
       name: "멍피자 1p, 강아지피자",
@@ -38,34 +38,44 @@ const initialState = {
 };
 
 const productSlice = createSlice({
-  name : 'product',
+  name: 'product',
   initialState,
-  reducers:{
-   getAllProducts:(state, action)=>{
-    state.productList = action.payload;
-   },
-   getSelectedProduct:(state,action)=>{
-    state.selectedProduct = action.payload;
-   },  //상품상세보기할때필요한듯
-   addProduct: (state, action)=>{
-    state.productList.push(action.payload);
-   }
+  reducers: {
+    getAllProducts: (state, action) => {
+      state.productList = action.payload;
+    },
+    getSelectedProduct: (state, action) => {
+      state.selectedProduct = action.payload;
+    },  //상품상세보기할때필요한듯
+    addProduct: (state, action) => {
+      state.productList.push(action.payload);
+    },
+    // 카테고리명 갖고 오기
+    getSelectedCategory: (state, action) => {
+      state.selectCategory = action.payload;
+    }
   }
 });
 
 export const {
   getAllProducts,
   getSelectedProduct,
-  addProduct
+  addProduct,
+  getSelectedCategory
 } = productSlice.actions;
 
-export const selectedAllProduct = (state)=>{
+export const selectedAllProduct = (state) => {
   return state.product.productList
 };
-export const selectSelectedProduct = (state)=>{
+export const selectSelectedProduct = (state) => {
   return state.product.selectedProduct;
 };
 // 모든상품목록선택, 선택된 상품선택
+
+// 카테고리명
+export const selectCategoryState = (state) => {
+  return state.product.selectCategory;
+}
 
 
 export default productSlice.reducer;

@@ -2,6 +2,9 @@ import { Button, Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
 import styled from "styled-components";
 import { LuUser2 } from "react-icons/lu";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { getSelectedCategory, selectCategoryState } from "../features/productSlice";
 
 
 const HeaderContainer = styled.div`
@@ -50,6 +53,18 @@ const SubMenu = styled.div`
 
 function Header() {
   const navigate = useNavigate();
+  // const [productCategory, setproductCategory] = useState('');
+  const dispatch = useDispatch();
+
+  const handleFoodCategory = () => {
+    dispatch(getSelectedCategory('food'))
+    navigate('/products')
+  };
+
+  const handleClothesCategory = () => {
+    dispatch(getSelectedCategory('clothes'))
+    navigate('/products2')
+  };
 
   return (
     <HeaderContainer>
@@ -67,9 +82,9 @@ function Header() {
                 <NavContainer>
                 <Nav.Link href="#1">전체상품</Nav.Link>
                 <SubMenu>
+                  <Nav.Link onClick={handleFoodCategory}>식음</Nav.Link>
+                  <Nav.Link onClick={handleClothesCategory}>의류</Nav.Link>
                   <Nav.Link onClick={() => navigate('/addProduct')}>등록</Nav.Link>
-                  <Nav.Link onClick={() => navigate('/products')}>식음</Nav.Link>
-                  <Nav.Link onClick={() => navigate('/products2')}>의류</Nav.Link>
                 </SubMenu>
                 </NavContainer>
                 <Nav.Link href="#2">커뮤니티</Nav.Link>
