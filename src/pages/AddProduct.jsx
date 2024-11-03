@@ -94,6 +94,20 @@ function AddProduct() {
 
   const navigate = useNavigate();
 
+  // const handleAddProduct = () => {
+  //   const newProduct = {
+  //     id: Date.now(), // 고유 ID 생성
+  //     name: title,
+  //     description: content,
+  //     price: Number(price),
+  //     category,
+  //     imgUrl: '/images/default.png' // 기본 이미지 설정
+  //   };
+  //   dispatch(addProduct(newProduct));
+  //   alert("작성완료");
+  //   navigate('/')
+  // };
+
   const handleAddProduct1 = async (e) => {
     e.preventDefault();
 
@@ -106,19 +120,26 @@ function AddProduct() {
     const formData = new FormData();
     formData.append("productNo", 0);
     formData.append("productName", title);
+    formData.append("productPrice", price)
     formData.append("productContent", content);
-    formData.append("productDetailImage", files[0]);
     formData.append("productCategory", category);
 
+    Array.from(files).forEach((file, index) => {
+      formData.append("uploadFile", file);
+    });
+
+    // formData 내용 확인
+    for (let [key, value] of formData.entries()) {
+      console.log(`${key}:`, value);
+    }
+
     try {
-      const response = await axios.post(`http://localhost:8080/product/register`, formData, {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-        }
-      });
+      const response = await axios.post(`http://localhost:8080/product/register`, formData
+      );
 
       if (response && response.data) {
         console.log("API 응답 데이터:", response.data);
+        alert("등록완료");
         navigate('/');
       } else {
         console.error("API 응답 데이터가 없습니다.");
