@@ -2,6 +2,8 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { selectCategoryState, selectedAllProduct } from "../features/productSlice";
+import axios from "axios";
+import { useEffect, useState } from "react";
 
 
 const MiddleLine = styled.div`
@@ -64,18 +66,37 @@ const PageNation = styled.button`
 function Products() {
 
   const navigate = useNavigate();
-  const product = useSelector(selectedAllProduct);
+  const [productList, setProductList] = useState([]);
+  // const product = useSelector(selectedAllProduct);
   const productCategory = useSelector(selectCategoryState);
+
+  
+  useEffect(() => {
+    const fetchProductList = async () => {
+      try {
+        console.log(productCategory);
+        const response = await axios.get(`http://localhost:8080/product/category?category=${productCategory}`);
+        console.log(response.data);
+        
+        if (response.status === 200) {
+          setProductList(response.data);
+        }
+      } catch (error) {
+        console.error(error);
+      }
+    }
+    fetchProductList();
+  }, []);
 
   return (
     <>
       <h2>전체상품</h2>
       <MiddleLine />
       <ProductList >
-        {product.map((product) => {
+        {productList && productList.map((product) => {
           return (
-            <ProductFrame key={product.id} onClick={() => { navigate(`/productDetail/${product.id}`)}} style={{ cursor: 'pointer' }}>
-              <ProductImage>{product.imgUrl}</ProductImage>
+            <ProductFrame key={product.id} onClick={() => { navigate(`/productDetail/${product.id}`) }} style={{ cursor: 'pointer' }}>
+              {/* <ProductImage><img src={product.imgPaths[0]} alt={product.name} /></ProductImage> */}
               <ProductName>{product.name}</ProductName>
               <ProdcutPrice>{product.price.toLocaleString()}원</ProdcutPrice>
             </ProductFrame>

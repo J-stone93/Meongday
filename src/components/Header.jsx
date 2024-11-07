@@ -63,7 +63,7 @@ function Header() {
 
   const handleClothesCategory = () => {
     dispatch(getSelectedCategory('clothes'))
-    navigate('/products2')
+    navigate('/products')
   };
 
   return (
