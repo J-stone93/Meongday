@@ -88,19 +88,18 @@ function AddQnA() {
   `;
 
   const ConfirmBtn = styled.button`
+  margin-left: 20px;
     width: 120px;
     height: 40px;
-    border: 2px solid #000;
-    background-color: #fff;
-    color: #000;
+    border: none;
     border-radius: 12px;
     font-size: 20px;
-    margin-left: 20px;
+    background-color: #4c4c4c;
+    color: #fff;
     transition: 0.2s background ease-in;
-    
+
     &:hover {
-      background-color: #000;
-      color: #fff;
+      background-color: #343434;
     }
   `;
 
@@ -132,7 +131,7 @@ function AddQnA() {
 
   const handleImgChange = (e) => {
     const files = Array.from(e.target.files);
-    
+
     if (files.length + imgFiles.length > 3) {
       alert("사진은 최대 3장까지 첨부할 수 있습니다.");
       return;
@@ -167,20 +166,21 @@ function AddQnA() {
           </AddQnATitle>
           <AddQnAFile>
             <ImgBtn htmlFor="input-file">사진첨부</ImgBtn>
-            <ImgFile 
+            <ImgFile
               type="file"
-              id="input-file" 
+              id="input-file"
               accept="image/*"
               multiple
               onChange={handleImgChange}
             />
             {imgPaths.map((path, index) => (
               <ImgGroup key={index}>
-                <Image 
+                <Image
                   src={path}
                   alt={`미리보기-${index}`}
                   thumbnail
                   style={{ maxWidth: "300px", margin: "10px" }}
+                  onClick={() => window.open(path, "_blank")}
                 />
                 <RemoveBtn onClick={() => handleRemoveImage(index)} />
               </ImgGroup>
