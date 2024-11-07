@@ -1,9 +1,9 @@
 import styled from "styled-components";
 import Image from 'react-bootstrap/Image';
 import axios from "axios";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useRef, useState } from "react";
-import { addProduct } from "../features/productSlice";
+import { addProduct, selectCategoryState } from "../features/productSlice";
 import { useNavigate } from "react-router-dom";
 
 const QnAContainer = styled.div`
@@ -85,10 +85,11 @@ const ImgBtn = styled.label`
 
 function AddProduct() {
   const dispatch = useDispatch();
+  // const productCategory = useSelector(selectCategoryState);
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
   const [price, setPrice] = useState('');
-  const [category, setCategory] = useState('food');
+  const [category, setCategory] = useState('');
   const fileEl = useRef(null);
   const [imgs, setImgs] = useState([]);
 
@@ -111,7 +112,7 @@ function AddProduct() {
   const handleAddProduct1 = async (e) => {
     e.preventDefault();
 
-    if (!title || !content || !price || !category || !fileEl.current.files[0]) {
+    if (!title || !content || !price || !category || !fileEl.current.files) {
       alert("모든 필드를 올바르게 입력해야 합니다.");
       return;
     }
@@ -184,8 +185,8 @@ function AddProduct() {
           </AddQnATitle>
           <label for="category">카테고리:</label>
           <select id="category" name="category" value={category} onChange={(e) => setCategory(e.target.value)}>
-            <option value="food">식음류</option>
-            <option value="clothes">의류</option>
+            <option value="food" onClick={() => setCategory("food")}>식음류</option>
+            <option value="clothes" onClick={() => setCategory("clothes")}>의류</option>
           </select>
           <AddQnAFile>
             {/* <p>사진첨부</p> */}
