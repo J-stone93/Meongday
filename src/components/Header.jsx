@@ -79,9 +79,7 @@ function Header() {
               <Nav>
                 <NavDropdown title={<UserIcon />} id="collapsible-nav-dropdown">
                   <NavDropdown.Item onClick={() => navigate('/login')}>로그인</NavDropdown.Item>
-                  <NavDropdown.Item href="#action/3.2">
-                    마이페이지
-                  </NavDropdown.Item>
+                  <NavDropdown.Item onClick={() => navigate('/mypage')}>마이페이지</NavDropdown.Item>
                 </NavDropdown>
               </Nav>
             </Navbar.Collapse>

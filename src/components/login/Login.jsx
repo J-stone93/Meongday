@@ -45,17 +45,28 @@ const PasswordDiv = styled.div`
   justify-content: space-between;
 `
 
-const IdNameTag = styled.div`
+const IdDiv = styled.div`
   width: 550px;
+  display: flex;
+  justify-content: space-between;
+`
+
+const IdNameTag = styled.div`
   font-size: 20px;
   font-weight: 900;
+`
+
+const ForgetId = styled.div`
+  font-size: 15px;
+  color: #007aff;
+  font-weight: 900;
   text-align: left;
+  cursor: pointer;
 `
 
 const PwNameTag = styled.div`
   font-size: 20px;
   font-weight: 900;
-  text-align: left;
 `
 
 const ForgetPassword = styled.div`
@@ -66,7 +77,7 @@ const ForgetPassword = styled.div`
   cursor: pointer;
 `
 
-const IdDiv = styled.div`
+const SignUpDiv = styled.div`
   width: 550px;
   display: flex;
   justify-content: center;
@@ -90,20 +101,27 @@ function Login() {
   return (
     <Container>
       <LogoImg src="/images/meongday.png" alt="meongday" />
-      <IdNameTag>아이디</IdNameTag>
+      <IdDiv>
+        <IdNameTag>아이디</IdNameTag>
+        <ForgetId>
+          <Link to="/findid">아이디를 잊으셨나요?</Link>
+        </ForgetId>
+      </IdDiv>
       <LoginInput />
       <PasswordDiv>
         <PwNameTag>비밀번호</PwNameTag>
-        <ForgetPassword>비밀번호를 잊으셨나요?</ForgetPassword>
+        <ForgetPassword>
+          <Link to="/findpw">비밀번호를 잊으셨나요?</Link>
+        </ForgetPassword>
       </PasswordDiv>
       <LoginInput />
       <Button>로그인</Button>
-      <IdDiv>
+      <SignUpDiv>
         <NoId>아이디가 없으신가요?</NoId>
         <MakeId>
           <Link to="/signup">아이디만들기</Link>
         </MakeId>
-      </IdDiv>
+      </SignUpDiv>
     </Container>
   );
 };

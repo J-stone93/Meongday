@@ -14,6 +14,9 @@ import Cart from './pages/Cart';
 import AddQnA from './pages/AddQnA';
 import SignUp from './components/login/SignUp';
 import AddProduct from './pages/AddProduct';
+import FindPw from './components/login/FindPw';
+import FindId from './components/login/FindId';
+import MyPage from './components/login/MyPage';
 
 
 
@@ -45,6 +48,9 @@ function App() {
           </Route>
             <Route path="/login" element={<Login />} />
             <Route path='/signup' element={<SignUp />} />
+            <Route path='/findpw' element={<FindPw />} />
+            <Route path='/findid' element={<FindId />} />
+            <Route path='/mypage' element={<MyPage />} />
         </Routes>
       </BrowserRouter>
     </>
